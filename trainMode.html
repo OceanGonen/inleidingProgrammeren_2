@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inleidingProgrammeren</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <h1>Train Basic Strategy</h1>
+    <div class="layout">
+        <h2>Dealer Hand: <span id="dealerHandValueTrain"></span></h2>
+        <div class="wrapper outline teal">
+            <div class="cards" id="dealerTrain">
+            </div>
+        </div>
+        <h2>Player Hand: <span id="playerHandValueTrain"></span></h2>
+        <div class="wrapper outline teal">
+            <div class="cards" id="playerTrain">
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="container" id="btn-container">
+                <button id="double-down-btn-train">Double</button>
+                <button id="hit-train-btn">Hit</button>
+                <button id="stand-train-btn">Stand</button>
+                <button id="split-btn">Split</button>
+
+            </div>
+        </div>
+
+        <div id="banner-train" class="hidden"></div>
+        <div class="background" id="notice">
+            <div class="notice">
+                <p></p>
+                <button id="split-btn">Split</button>
+                <button id="next-hand-btn">Next Hand</button>
+            </div>
+        </div>
+    </div>
+    <div id="toggle-btn" class="tab">Cheat Sheet</div>
+    <div class="cheat-sheet">
+        <div id="cheat-sheet-content" class="hidden">
+            <div class="cheat-sheet-image-container">
+                <button id="hide-cheat-sheet-btn" type="button">Hide Cheat Sheet</button>
+                <img src="images/basicStrategyTable.jpg" alt="Cheat Sheet Image">
+            </div>
+        </div>
+    </div>
+    <footer class="trainMode">
+        <a href="index.html">
+            <button class="contrast hover">« Play Mode</button>
+        </a>
+    </footer>
+    <script src="script.js"></script>
+    <script src="bsTable.js"></script>
+</body>
+
+</html>

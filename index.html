@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inleidingProgrammeren</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bettingBoard">
+            <h1>Play Blackjack</h1>
+            <div id="chipContainer">
+                <h3 id='bet'>Current bet amount:<br> &#8364; <span id="current-bet"></span>,00</h3>
+
+                <div id="chipBtnContainer">
+                    <button class="betBtn contrast" id="bet-10">&#8364;10</button>
+                    <button class="betBtn contrast" id="bet-25">&#8364;25</button>
+                    <button class="betBtn contrast" id="bet-50">&#8364;50</button>
+                    <button class="betBtn contrast" id="bet-100">&#8364;100</button>
+                    <button class="betBtn contrast" id="undo">&#8635;</button>
+                    <button class="betBtn contrast" id="all-in">All-in</button>
+                </div>
+                <button class="hover betBtn" id="deal">Deal</button>
+
+            </div>
+            <h2 id="balance">Chip balance:<br> &#8364; <span id="chip-balance"></span>,00</h2>
+
+
+        </div>
+        <div class="layout layoutPlay">
+            <h2>Dealer Hand: <span id="dealerHandValue"></span></h2>
+            <div class="wrapper outline goldenrod">
+                <div class="cards" id="dealer">
+                </div>
+            </div>
+            <h2>Player Hand: <span id="playerHandValue"></span></h2>
+            <div class="wrapper outline goldenrod">
+                <div class="cards" id="player">
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="container hidden" id="btn-container">
+                    <button id="hit-btn">Hit</button>
+                    <button id="stand-btn">Stand</button>
+                </div>
+            </div>
+            <div id="banner" class="hidden"></div>
+            <div class="background" id="notice">
+                <div class="notice">
+                    <button id="next-hand-btn">Next Hand</button>
+                    <button id="double-down-btn">Double</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="trainMode.html">
+            <button class="contrast hover">Train Mode &#187;</button>
+        </a>
+    </footer>
+    <script src="script.js"></script>
+    <script src="playMode.js"></script>
+
+</body>
+
+</html>
