@@ -100,14 +100,11 @@ function updateDealerHandValueTrain(value) {
     dealerHandValueElementTrain.textContent = value;
 }
 
-function updatePointValue(value) {
-    pointValueELement.textContent = value;
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Foldable cheat sheet
 document.getElementById("toggle-btn").addEventListener("click", function () {
-    var sheetContent = document.getElementById("cheat-sheet-content");
+    let sheetContent = document.getElementById("cheat-sheet-content");
     sheetContent.classList.toggle("hidden");
 
     this.classList.toggle("hidden");
@@ -116,7 +113,7 @@ document.getElementById("toggle-btn").addEventListener("click", function () {
 document
     .getElementById("hide-cheat-sheet-btn")
     .addEventListener("click", function () {
-        var sheetContent = document.getElementById("cheat-sheet-content");
+        let sheetContent = document.getElementById("cheat-sheet-content");
         sheetContent.classList.toggle("hidden");
 
         document.getElementById("toggle-btn").classList.toggle("hidden");
@@ -145,16 +142,14 @@ function checkAnswer(handValue, playerHand, dealerUpcard, playerMove) {
     // Otherwise, use standard table.
     else {
         if (handValue == 21) {
-            rowIndex = 12; //Stand
+            rowIndex = 12; // This row is only stand
             console.log("Just stand, dumbass!");
         } else if (playerHand.includes("A")) {
             rowIndex = handValue; // Coincidentally, the value and rowIndex line up perfectly
         } else if (handValue < 5) {
-            // This row is only hit
-            rowIndex = 0;
+            rowIndex = 0; // This row is only hit
         } else if (handValue > 17) {
-            // This row is only stand
-            rowIndex = 12;
+            rowIndex = 12; // This row is only stand
         } else {
             rowIndex = handValue - 5; // Standard table, hard values
         }
