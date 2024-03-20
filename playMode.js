@@ -97,7 +97,7 @@ function dealHands() {
 
     handValue = calcValue(playerHand);
 
-    if(playerHand.length == 2 && (handValue <= 11 && handValue >= 9)){
+    if(playerHand.length == 2 && (handValue <= 12 && handValue >= 9)){
         btnContainer.appendChild(doubleDownBtn);
     }
     
@@ -119,7 +119,8 @@ function playerDoublesDown () {
     updateCurrentBetAmount(currentBetAmount);
     playerHits();
     playerStands(); // Player only receives one card
-    doubleDownBtn.remove();
+    hitBtn.remove();
+    standBtn.remove();
 }
 
 doubleDownBtn.addEventListener('click', playerDoublesDown);
@@ -127,11 +128,11 @@ doubleDownBtn.addEventListener('click', playerDoublesDown);
 //Adding funtion to the 'Hit' button
 
 const playerHits = () => { 
+    doubleDownBtn.remove();
     newCard = selectRandomCard();
     playerHand.push(newCard);
 
     setCardProperty(newCard, player);
-
 
     updatePlayerHandValue(calcValue(playerHand));
     console.log("Player: " + calcValue(playerHand));
@@ -143,6 +144,7 @@ const playerHits = () => {
 
         hitBtn.remove();
         standBtn.remove();
+        doubleDownBtn.remove();
 
         // Append the 'nextHand' button to the document body
         chipContainer.appendChild(nextHandBtn);
@@ -154,6 +156,9 @@ hitBtn.addEventListener('click', playerHits);
 //Adding funtion to the 'Stand' button
 
 const playerStands = async () => {
+
+    doubleDownBtn.remove();
+    hitBtn.remove();
 
     updateDealerHandValue(calcValue(dealerHand));
 
@@ -308,80 +313,6 @@ function updateCurrentBetAmount(value) {
 //Set cards and start the first hand
 
 deckQty(5);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Adding function to the Split button
-
-// function displaySplitHands(hand1, hand2) {
-//     // Clear the player's current hand display
-//     player.innerHTML = '';
-
-//     // Display the first split hand
-//     hand1.forEach(card => {
-//         setCardProperty(card, player);
-//     });
-
-//     // Calculate and display the value of the first split hand
-//     const hand1Value = calcValue(hand1);
-//     updatePlayerHandValue(hand1Value);
-
-//     // Deal an additional card to the first split hand
-//     const newCard1 = selectRandomCard();
-//     hand1.push(newCard1);
-//     setCardProperty(newCard1, player);
-
-//     // Calculate and display the updated value of the first split hand
-//     const updatedHand1Value = calcValue(hand1);
-//     updatePlayerHandValue(updatedHand1Value);
-
-//     // Create a new container for the second split hand
-//     const secondHandContainer = document.createElement('div');
-//     secondHandContainer.classList.add('cards');
-
-//     // Append the second hand container to the player area
-//     player.appendChild(secondHandContainer);
-
-//     // Display the second split hand
-//     hand2.forEach(card => {
-//         setCardProperty(card, secondHandContainer);
-//     });
-
-//     // Calculate and display the value of the second split hand
-//     const hand2Value = calcValue(hand2);
-//     updateSplitHandValue(hand2Value);
-    
-//     // Deal an additional card to the second split hand
-//     const newCard2 = selectRandomCard();
-//     hand2.push(newCard2);
-//     setCardProperty(newCard2, secondHandContainer);
-
-//     // Calculate and display the updated value of the second split hand
-//     const updatedHand2Value = calcValue(hand2);
-//     updateSplitHandValue(updatedHand2Value);
-// }
-
-// splitBtn.addEventListener('click', () => {
-
-//     const hand1 = [playerHand[0], selectRandomCard()];
-//     const hand2 = [playerHand[1], selectRandomCard()];
-
-//     displaySplitHands(hand1, hand2);
-
-//     splitBtn.remove();
-    
-// });
-
-
-
-// Function to update the value of the second split hand
-// function updateSplitHandValue(value) {
-//     const splitHandValueElement = document.getElementById("splitHandValue");
-//     splitHandValueElement.textContent = value;
-// }
-
-
-
-
 
 
 
