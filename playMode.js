@@ -147,7 +147,7 @@ const playerHits = () => {
         doubleDownBtn.remove();
 
         // Append the 'nextHand' button to the document body
-        chipContainer.appendChild(nextHandBtn);
+        chipBtnContainer.appendChild(nextHandBtn);
     }
 }
 

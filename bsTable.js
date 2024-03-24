@@ -1,4 +1,4 @@
-//With slight assistance by ChatGPT using the following prompt: "How do i write my checkanswer function so that it checks if the player made the correct move?"
+//With assistance by ChatGPT using the following prompt: "How do I write my checkanswer function so that it checks if the player made the correct move?"
 
 const bsTable = [
     ["H", "H", "H", "H", "H", "H", "H", "H", "H", "H"], // 5
@@ -110,9 +110,7 @@ document.getElementById("toggle-btn").addEventListener("click", function () {
     this.classList.toggle("hidden");
 });
 
-document
-    .getElementById("hide-cheat-sheet-btn")
-    .addEventListener("click", function () {
+document.getElementById("hide-cheat-sheet-btn").addEventListener("click", function () {
         let sheetContent = document.getElementById("cheat-sheet-content");
         sheetContent.classList.toggle("hidden");
 
@@ -129,15 +127,17 @@ function checkAnswer(handValue, playerHand, dealerUpcard, playerMove) {
     let rowIndex;
     let colIndex;
 
-    // Check if both cards are the same.
+    // Check if both cards are the same. 
     if (playerHand[0] == playerHand[1]) {
         if (playerHand.includes("A")) {
             rowIndex = 9; // A,A
+        } else if (playerHand.includes("J") || playerHand.includes("Q") || playerHand.includes("K")){
+            rowIndex = 8; // 10,10
         } else {
-            rowIndex = playerHand[0] - 2;
+            rowIndex = playerHand[0] - 2;// index 0 == value 2 (one card)
         }
 
-        table = bsTableWithPair;
+        table = bsTableWithPair; // Use the table with pairs
     }
     // Otherwise, use standard table.
     else {
@@ -151,11 +151,10 @@ function checkAnswer(handValue, playerHand, dealerUpcard, playerMove) {
         } else if (handValue > 17) {
             rowIndex = 12; // This row is only stand
         } else {
-            rowIndex = handValue - 5; // Standard table, hard values
+            rowIndex = handValue - 5; // Standard table, hard values (index 0 == combined value of 5)
         }
         table = bsTable;
     }
-
     console.log("row " + rowIndex);
 
     // Define the mapping for column indexes to dealer card values
@@ -175,8 +174,8 @@ function checkAnswer(handValue, playerHand, dealerUpcard, playerMove) {
     } else {
         colIndex = dealerCardValues.indexOf(dealerCardValue);
     }
-
     console.log("col " + colIndex);
+
     console.log(table[rowIndex][colIndex] === playerMove);
 
     function waitForNextHand() {
