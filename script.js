@@ -91,10 +91,12 @@ const calcValue = (hand) => {
 
 function setCardProperty(card, container) {
     const newCard = cardStyle.cloneNode(true);
+    //If the suit is either Hearts or Diamonds, make the card red
     if (card[card.length - 1] === '♦' || card[card.length - 1] === '♥') {
         newCard.setAttribute('data-red', true);
     }
 
+    //Flipping the dealer's second card
     if ((container === dealer || container == dealerTrain) && container.children.length === 1) {
         newCard.classList.add('back');
     }

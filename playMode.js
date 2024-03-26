@@ -159,6 +159,7 @@ const playerStands = async () => {
 
     doubleDownBtn.remove();
     hitBtn.remove();
+    standBtn.remove();
 
     updateDealerHandValue(calcValue(dealerHand));
 
